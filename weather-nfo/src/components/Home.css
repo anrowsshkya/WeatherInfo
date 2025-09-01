@@ -1,0 +1,10 @@
+/*Home.css */
+.weather-card {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
