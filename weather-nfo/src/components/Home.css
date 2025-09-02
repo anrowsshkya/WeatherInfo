@@ -1,10 +1,67 @@
-/*Home.css */
-.weather-card {
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    color: white;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
+    transition: background 0.5s ease-in-out;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+/* Input + button styling */
+.city-input {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    max-width: 80%;
+}
+
+.fetch-button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: #0077ff;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.fetch-button:hover {
+    background: #005fcc;
+}
+
+.error {
+    color: #ffdddd;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    background: rgba(255, 0, 0, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+}
+
+/* Background images for weather conditions */
+.bg-rain {
+    background: url("../assets/images/rain.webp") no-repeat center/cover;
+}
+
+.bg-clouds {
+    background: url("../assets/images/clouds.jpg") no-repeat center/cover;
+}
+
+.bg-clear {
+    background: url("../assets/images/sunny.jpg") no-repeat center/cover;
+}
+
+.bg-default {
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }

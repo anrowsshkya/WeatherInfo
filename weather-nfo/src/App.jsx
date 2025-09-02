@@ -1,6 +1,6 @@
 // src/App.js
 import React from "react";
-import Home from "./components/home"; // Import your Home component
+import Home from "./components/Home"; // Import your Home component
 import "./App.css"; // Optional: global styles
 
 function App() {

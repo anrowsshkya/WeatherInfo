@@ -1,27 +1,52 @@
 // src/components/Home.jsx
 import React, { useState } from "react";
 import WeatherCard from "./WeatherCard";
+// import fetchWeather from "../api/weatherApi"; // Uncomment when API ready
 import "./Home.css";
-// import fetchWeather from "../api/weatherApi"; //when API ready
 
 export default function Home() {
     const [city, setCity] = useState("");
     const [weather, setWeather] = useState(null);
+    const [error, setError] = useState("");
+
+    // Background class based on weather condition
+    const getBackgroundClass = (condition) => {
+        switch (condition?.toLowerCase()) {
+            case "rain":
+                return "bg-rain";
+            case "clouds":
+                return "bg-clouds";
+            case "clear":
+                return "bg-clear";
+            default:
+                return "bg-default";
+        }
+    };
 
     const handleFetchWeather = async () => {
-        // Placeholder data for now
-        setWeather({
-            city: city || "Kathmandu",
-            temperature: 25,
-        });
+        try {
+            // Dummy data for now
+            setWeather({
+                city: city || "Kathmandu",
+                temperature: 25,
+                humidity: 70,
+                condition: "Rain", // change to "Clear" or "Clouds" to test other backgrounds
+                icon: "/assets/images/rain-icon.png", // local icon for now
+            });
+            setError("");
 
-        // Later replace with API call
-        // const data = await fetchWeather(city);
-        // setWeather(data);
+            // Uncomment below when API is ready
+            // const data = await fetchWeather(city || "Kathmandu");
+            // setWeather(data);
+            // setError("");
+        } catch (err) {
+            setError("City not found. Try again.");
+            setWeather(null);
+        }
     };
 
     return (
-        <div className="home-container">
+        <div className={`home-container ${getBackgroundClass(weather?.condition)}`}>
             <input
                 type="text"
                 placeholder="Enter city"
@@ -33,7 +58,8 @@ export default function Home() {
                 Get Weather
             </button>
 
-            {weather && <WeatherCard city={weather.city} temperature={weather.temperature} />}
+            {error && <p className="error">{error}</p>}
+            {weather && <WeatherCard {...weather} />}
         </div>
     );
 }
