@@ -1,59 +1,33 @@
 .weather-card {
-    margin-top: 2rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 2rem;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    color: black;
-    width: 300px;
-    max-width: 90%;
-    animation: fadeIn 0.8s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    display: inline-block;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .weather-card h2 {
-    margin-bottom: 0.5rem;
-    font-size: 1.6rem;
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+}
+
+.temp {
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
-.weather-card p {
-    margin: 0.3rem 0;
-    font-size: 1rem;
-    font-weight: 500;
+.condition {
+    margin: 5px 0;
+    font-size: 1.2rem;
 }
 
-.weather-card img {
-    margin-top: 1rem;
+.humidity {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.weather-icon {
     width: 80px;
     height: 80px;
-    animation: float 3s ease-in-out infinite;
-}
-
-/* Subtle animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
 }
