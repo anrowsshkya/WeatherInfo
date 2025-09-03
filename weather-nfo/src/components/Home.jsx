@@ -3,6 +3,11 @@ import fetchWeather from "../api/weatherApi";
 import WeatherCard from "./WeatherCard";
 import "../App.css";
 
+import sunnyBackground from "../assets/images/sunny.jpg";
+import rainyBackground from "../assets/images/rain.webp";
+import cloudyBackground from "../assets/images/cloudy.jpg";
+import defaultBackground from "../assets/images/default.jpg";
+
 export default function Home() {
     const [city, setCity] = useState("");
     const [weather, setWeather] = useState(null);
@@ -14,14 +19,39 @@ export default function Home() {
             setWeather(result);
             setError("");
         } catch (err) {
-            setError("City not found. Please try again.");
+            setError("City is not found. Please try again.");
             setWeather(null);
         }
     };
 
+    const getBackgroundImage = (condition) => {
+        if (!condition) return defaultBackground;
+        switch (condition.toLowerCase()) {
+            case "clear":
+                return sunnyBackground;
+            case "rain":
+            case "drizzle":
+                return rainyBackground;
+            case "clouds":
+                return cloudyBackground;
+            default:
+                return defaultBackground;
+        }
+    };
+
     return (
-        <div className="home-container">
-            <h1>Weather Dashboard</h1>
+        <div
+            className="home-container"
+            style={{
+                backgroundImage: `url(${getBackgroundImage(weather?.condition)})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                minHeight: "100vh",
+                width: "100%",
+                transition: "background 0.5s ease-in-out",
+            }}
+        >
+            <h1>WeatherInfo</h1>
             <div>
                 <input
                     type="text"

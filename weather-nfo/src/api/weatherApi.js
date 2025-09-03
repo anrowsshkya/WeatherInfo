@@ -1,6 +1,3 @@
-// src/api/weatherApi.js
-// Utility function to fetch weather data from OpenWeatherMap API
-
 const API_KEY = "bf6f89b109eb7d48abbc8a52c132cf5e";
 
 export default async function fetchWeather(city) {
@@ -13,6 +10,9 @@ export default async function fetchWeather(city) {
         }
 
         const data = await response.json();
+
+        console.log("API response:", data);
+
 
         return {
             city: data.name,
