@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import fetchWeather from "../api/weatherApi";
 import WeatherCard from "./WeatherCard";
 import "../App.css";
+import "./Home.css";
 
 import sunnyBackground from "../assets/images/sunny.jpg";
 import rainyBackground from "../assets/images/rain.webp";
