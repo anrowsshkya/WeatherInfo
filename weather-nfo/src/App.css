@@ -1,46 +1,25 @@
-.App {
-  text-align: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  width: 100%;
+  height: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background: linear-gradient(135deg, #0b1020, #1b2a4a);
-  min-height: 100vh;
-  color: #fff;
+  color: white;
+  text-align: center;
 }
 
-.home-container h1 {
-  margin-bottom: 1.5rem;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.search-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 1rem;
-}
-
-.city-input {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  width: 250px;
-}
-
-.search-btn {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: #8ab4f8;
-  color: #0b1020;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.search-btn:disabled {
-  background-color: #555;
-  cursor: not-allowed;
-}
-
-.error {
-  color: #ff6b6b;
-  margin-top: 10px;
+button {
+  font-family: inherit;
 }

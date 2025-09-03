@@ -5,66 +5,51 @@
     justify-content: center;
     min-height: 100vh;
     width: 100%;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
     text-align: center;
-    position: relative;
+    color: white;
 }
 
-.home-container>* {
-    position: relative;
-    z-index: 1;
+.home-container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 2);
+    margin-bottom: 1.5rem;
 }
 
-.city-input {
+input {
     padding: 0.8rem 1.2rem;
-    border: none;
     border-radius: 25px;
+    border: none;
     outline: none;
-    font-size: 1rem;
-    margin-right: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    width: 260px;
+    width: 250px;
     max-width: 80%;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
 }
 
-.fetch-button {
+button {
     padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 25px;
-    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    background: linear-gradient(135deg, #0077ff, #00b7ff);
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #368aea, #56c5f1);
+    color: white;
+    font-size: 1.2rem;
 }
 
-.fetch-button:hover {
-    background: linear-gradient(135deg, #005fcc, #0099dd);
+button:hover {
+    background: linear-gradient(135deg, #3a7cc6, #0099dd);
 }
 
 .error {
-    color: #ffdddd;
+    color: red;
     margin-top: 1rem;
-    font-size: 0.9rem;
-    background: rgba(255, 0, 0, 0.35);
     padding: 0.6rem 1.2rem;
     border-radius: 12px;
-}
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 2);
+    background-color: black;
 
-.bg-rain {
-    background: url("../assets/images/rain.webp") no-repeat center/cover;
-}
-
-.bg-clouds {
-    background: url("../assets/images/clouds.jpg") no-repeat center/cover;
-}
-
-.bg-clear {
-    background: url("../assets/images/sunny.jpg") no-repeat center/cover;
-}
-
-.bg-default {
-    background: linear-gradient(135deg, #667eea, #764ba2);
 }
