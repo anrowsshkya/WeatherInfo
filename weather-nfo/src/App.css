@@ -1,24 +1,47 @@
-/* src/App.css */
-
-/* Reseting some default styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Global body style*/
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f0f4f8;
-  color: #333;
-}
-
-/* App container */
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0b1020, #1b2a4a);
   min-height: 100vh;
-  padding: 20px;
+  color: #fff;
+  padding: 2rem;
+}
+
+.home-container h1 {
+  margin-bottom: 1.5rem;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.city-input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  width: 250px;
+}
+
+.search-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #8ab4f8;
+  color: #0b1020;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-btn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ff6b6b;
+  margin-top: 10px;
 }

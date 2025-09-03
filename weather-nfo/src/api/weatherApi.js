@@ -1,16 +1,27 @@
-// // src/api/weatherApi.js
-// // Later we will use this to fetch data from OpenWeather API
+// src/api/weatherApi.js
+// Utility function to fetch weather data from OpenWeatherMap API
 
-// export default async function fetchWeather(city) {
-//     const apiKey = "YOUR_API_KEY";
-//     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+const API_KEY = "bf6f89b109eb7d48abbc8a52c132cf5e";
 
-//     const response = await fetch(url);
-//     if (!response.ok) throw new Error("Failed to fetch weather data");
-//     const data = await response.json();
+export default async function fetchWeather(city) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
 
-//     return {
-//         city: data.name,
-//         temperature: data.main.temp,
-//     };
-// }
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error("City not found");
+        }
+
+        const data = await response.json();
+
+        return {
+            city: data.name,
+            temperature: data.main.temp,
+            condition: data.weather[0].main,
+            humidity: data.main.humidity,
+            icon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+        };
+    } catch (error) {
+        throw error;
+    }
+}

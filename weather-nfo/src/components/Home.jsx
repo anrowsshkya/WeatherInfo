@@ -1,65 +1,47 @@
-// src/components/Home.jsx
 import React, { useState } from "react";
+import fetchWeather from "../api/weatherApi";
 import WeatherCard from "./WeatherCard";
-// import fetchWeather from "../api/weatherApi"; // Uncomment when API ready
-import "./Home.css";
+import "../App.css";
 
 export default function Home() {
     const [city, setCity] = useState("");
     const [weather, setWeather] = useState(null);
     const [error, setError] = useState("");
 
-    // Background class based on weather condition
-    const getBackgroundClass = (condition) => {
-        switch (condition?.toLowerCase()) {
-            case "rain":
-                return "bg-rain";
-            case "clouds":
-                return "bg-clouds";
-            case "clear":
-                return "bg-clear";
-            default:
-                return "bg-default";
-        }
-    };
-
-    const handleFetchWeather = async () => {
+    const handleSearch = async () => {
         try {
-            // Dummy data for now
-            setWeather({
-                city: city || "Kathmandu",
-                temperature: 25,
-                humidity: 70,
-                condition: "Rain", // change to "Clear" or "Clouds" to test other backgrounds
-                icon: "/assets/images/rain-icon.png", // local icon for now
-            });
+            const result = await fetchWeather(city);
+            setWeather(result);
             setError("");
-
-            // Uncomment below when API is ready
-            // const data = await fetchWeather(city || "Kathmandu");
-            // setWeather(data);
-            // setError("");
         } catch (err) {
-            setError("City not found. Try again.");
+            setError("City not found. Please try again.");
             setWeather(null);
         }
     };
 
     return (
-        <div className={`home-container ${getBackgroundClass(weather?.condition)}`}>
-            <input
-                type="text"
-                placeholder="Enter city"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                className="city-input"
-            />
-            <button onClick={handleFetchWeather} className="fetch-button">
-                Get Weather
-            </button>
+        <div className="home-container">
+            <h1>Weather Dashboard</h1>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Enter city"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                />
+                <button onClick={handleSearch}>Search</button>
+            </div>
 
             {error && <p className="error">{error}</p>}
-            {weather && <WeatherCard {...weather} />}
+            {weather && (
+                <WeatherCard
+                    city={weather.city}
+                    temperature={weather.temperature}
+                    condition={weather.condition}
+                    humidity={weather.humidity}
+                    icon={weather.icon}
+                />
+            )}
         </div>
     );
 }
